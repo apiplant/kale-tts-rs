@@ -52,8 +52,85 @@ jobs:
           name: kale-tts-${{ matrix.target }}
           path: kale-tts-*.tar.gz*
           if-no-files-found: error
+  cuda-package:
+    runs-on: ubuntu-22.04
+    container: nvidia/cuda:12.1.1-devel-ubuntu22.04
+    env:
+      CUDARC_CUDA_VERSION: "12010"
+    steps:
+      - name: Install build tools
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends curl build-essential pkg-config ca-certificates git libclang-dev
+      - uses: actions/checkout@v4
+      - name: Install Rust
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal
+          echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: x86_64-unknown-linux-gnu-cuda
+      - name: Build CUDA binary
+        run: cargo build --locked --release --features cuda
+      - name: Archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          archive="kale-tts-cuda-$GITHUB_REF_NAME-x86_64-unknown-linux-gnu.tar.gz"
+          mkdir -p package
+          install -Dm755 target/release/kale-tts package/kale-tts
+          cp README.md LICENSE package/
+          cp vendor/LICENSE package/LICENSE-KaleComputer
+          cp vendor/KOKORO-LICENSE package/LICENSE-Kokoro-Candle
+          cp vendor/THIRD_PARTY_NOTICES.md package/
+          tar -C package -czf "$archive" .
+          sha256sum "$archive" > "$archive.sha256"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kale-tts-cuda-x86_64-unknown-linux-gnu
+          path: kale-tts-cuda-*.tar.gz*
+          if-no-files-found: error
+
+  cuda-package-arch:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    container: archlinux:base-devel
+    steps:
+      - name: Install build tools
+        run: pacman -Sy --noconfirm --needed rust cuda git clang
+      - uses: actions/checkout@v4
+      - name: Build Arch CUDA binary
+        shell: bash
+        run: |
+          set -euo pipefail
+          export PATH=/opt/cuda/bin:$PATH CUDA_PATH=/opt/cuda CUDA_HOME=/opt/cuda
+          cudarc_version=$(nvcc --version \
+            | sed -n 's/.*release \([0-9]*\)\.\([0-9]*\).*/\1 \2/p' \
+            | awk '{v=$1*1000+$2*10; print (v>13040)?13040:v}')
+          export CUDARC_CUDA_VERSION="$cudarc_version"
+          cargo build --locked --release --features cuda
+      - name: Archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          archive="kale-tts-cuda-arch-$GITHUB_REF_NAME-x86_64-unknown-linux-gnu.tar.gz"
+          mkdir -p package
+          install -Dm755 target/release/kale-tts package/kale-tts
+          cp README.md LICENSE package/
+          cp vendor/LICENSE package/LICENSE-KaleComputer
+          cp vendor/KOKORO-LICENSE package/LICENSE-Kokoro-Candle
+          cp vendor/THIRD_PARTY_NOTICES.md package/
+          tar -C package -czf "$archive" .
+          sha256sum "$archive" > "$archive.sha256"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kale-tts-cuda-arch-x86_64-unknown-linux-gnu
+          path: kale-tts-cuda-arch-*.tar.gz*
+          if-no-files-found: error
+
   publish:
-    needs: binaries
+    needs: [binaries, cuda-package, cuda-package-arch]
+    if: ${{ !cancelled() && needs.binaries.result == 'success' && needs.cuda-package.result == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4

@@ -1,0 +1,16 @@
+Package: kale-tts-cuda
+Version: @VERSION@
+Section: sound
+Priority: optional
+Architecture: amd64
+Maintainer: ApiPlant <releases@apiplant.com>
+Installed-Size: @INSTALLED_SIZE@
+Depends: libc6 (>= 2.35), libcuda1
+Conflicts: kale-tts
+Replaces: kale-tts
+Provides: kale-tts
+Homepage: https://kale-tts-rs.apiplant.com
+Description: Native Rust text-to-speech using Kale models with CUDA
+ Synthesize speech from Kale voices with a native Rust binary. This build uses
+ CUDA and requires a compatible host driver and CUDA runtime. Model weights
+ download separately into the user's cache.

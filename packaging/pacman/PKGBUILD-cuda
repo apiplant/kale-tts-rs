@@ -1,0 +1,24 @@
+# Maintainer: ApiPlant <releases@apiplant.com>
+pkgname=kale-tts-cuda
+pkgver=@VERSION@
+pkgrel=1
+pkgdesc="Native Rust text-to-speech using Kale models (CUDA build)"
+arch=('x86_64')
+url="https://kale-tts-rs.apiplant.com"
+license=('MIT' 'Apache-2.0')
+depends=('glibc' 'nvidia-utils' 'cuda')
+provides=('kale-tts')
+conflicts=('kale-tts')
+# Set to kale-tts-cuda-arch when the Arch-native CUDA build succeeds, or to
+# kale-tts-cuda to use the generic CUDA 12 archive.
+source=("kale-tts-cuda-$pkgver-x86_64.tar.gz::https://github.com/apiplant/kale-tts-rs/releases/download/v$pkgver/@ARCHIVE_PREFIX@-v$pkgver-x86_64-unknown-linux-gnu.tar.gz")
+sha256sums=('@SHA_LINUX_X86_64_CUDA@')
+options=('!strip' '!debug')
+
+package() {
+  install -Dm755 "$srcdir/kale-tts" "$pkgdir/usr/bin/kale-tts"
+  install -Dm644 "$srcdir/README.md" "$pkgdir/usr/share/doc/kale-tts-cuda/README.md"
+  for file in LICENSE LICENSE-KaleComputer LICENSE-Kokoro-Candle THIRD_PARTY_NOTICES.md; do
+    install -Dm644 "$srcdir/$file" "$pkgdir/usr/share/doc/kale-tts-cuda/$file"
+  done
+}
