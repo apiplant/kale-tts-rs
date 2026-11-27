@@ -19,6 +19,12 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
+      - name: Install protobuf compiler
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y protobuf-compiler
+      - name: Install protobuf compiler
+        if: runner.os == 'macOS'
+        run: brew install protobuf
       - uses: dtolnay/rust-toolchain@stable
         with:
           targets: ${{ matrix.target }}
@@ -61,7 +67,7 @@ jobs:
       - name: Install build tools
         run: |
           apt-get update
-          apt-get install -y --no-install-recommends curl build-essential pkg-config ca-certificates git libclang-dev
+          apt-get install -y --no-install-recommends curl build-essential pkg-config ca-certificates git libclang-dev protobuf-compiler
       - uses: actions/checkout@v4
       - name: Install Rust
         run: |
@@ -97,7 +103,7 @@ jobs:
     container: archlinux:base-devel
     steps:
       - name: Install build tools
-        run: pacman -Sy --noconfirm --needed rust cuda git clang
+        run: pacman -Sy --noconfirm --needed rust cuda git clang protobuf
       - uses: actions/checkout@v4
       - name: Build Arch CUDA binary
         shell: bash
