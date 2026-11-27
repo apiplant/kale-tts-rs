@@ -10,4 +10,4 @@ pnpm build
 pnpm run pages:dev
 ~~~
 
-Cloudflare Pages builds this directory on every push to `main`. It runs `pnpm install --frozen-lockfile && pnpm build` from `website/` and publishes `dist/` to [kale-tts-rs-website.pages.dev](https://kale-tts-rs-website.pages.dev/). Pull requests get preview deployments.
+Cloudflare Pages builds this directory on every push to `main`. It runs `pnpm install --frozen-lockfile && pnpm build` from `website/` and publishes `dist/` to [kale-tts-rs.apiplant.com](https://kale-tts-rs.apiplant.com/). Pull requests get preview deployments.

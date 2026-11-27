@@ -1,6 +1,6 @@
 # kale-tts-rs
 
-[Project site](https://kale-tts-rs-website.pages.dev/) · [Examples](https://kale-tts-rs-website.pages.dev/examples) · [Documentation](https://kale-tts-rs-website.pages.dev/docs)
+[Project site](https://kale-tts-rs.apiplant.com/) · [Examples](https://kale-tts-rs.apiplant.com/examples) · [Documentation](https://kale-tts-rs.apiplant.com/docs)
 
 Cloudflare Pages builds `website/` from the `main` branch on each push.
 

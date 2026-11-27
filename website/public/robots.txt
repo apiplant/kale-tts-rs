@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://kale-tts-rs-website.pages.dev/sitemap.xml
+Sitemap: https://kale-tts-rs.apiplant.com/sitemap.xml
