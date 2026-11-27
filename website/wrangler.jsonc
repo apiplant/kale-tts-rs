@@ -1,0 +1,5 @@
+{
+  "name": "kale-tts-rs-website",
+  "compatibility_date": "2026-08-03",
+  "pages_build_output_dir": "./dist"
+}

@@ -1,0 +1,4 @@
+[env]
+# cudarc 0.19.10 supports CUDA bindings through 13.4. They work with the
+# installed CUDA 13.5 toolkit; CUDA users can override this for older toolkits.
+CUDARC_CUDA_VERSION = { value = "13040", force = false }

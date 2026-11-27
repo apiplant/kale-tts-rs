@@ -1,0 +1,313 @@
+# Technical terms as they are spoken: exact written form (case matters)<TAB>the words to say.
+# Applied before the text rules (dizione) and the word list, as a lookup, never a guess: add a term
+# after hearing it come out wrong. A run of capitals is spelled (AWS); keep it joined, since a lone A or I reads as a word.
+aws	AWS
+api	API
+cli	C L I
+gpu	GPU
+url	URL
+WebGPU	web GPU
+webgpu	web GPU
+WebGL	web GL
+PostgreSQL	postgres QL
+Postgres	postgres
+MySQL	my SQL
+SQLite	SQ lite
+GraphQL	graph QL
+OAuth	oh auth
+useEffect	use effect
+useState	use state
+useMemo	use memo
+useCallback	use callback
+useRef	use ref
+user_id	user ID
+kubectl	cube control
+nginx	engine X
+OpenAI	open AI
+Wi-Fi	wifi
+# Acronyms said letter by letter (vLLM: each letter spoken). A plural spells its
+# letters apart, since a joined run with an s reads as a word ("LLMs" came out "lelms").
+vLLM	VLLM
+vllm	VLLM
+LLMs	L L M's
+GPUs	G P U's
+CPUs	C P U's
+NPUs	N P U's
+TPUs	T P U's
+PRs	P R's
+llm	LLM
+tts	TTS
+stt	S T T
+vad	VAD
+asr	ASR
+mcp	MCP
+sdk	SDK
+onnx	onyx
+# Spaced, since run together they were misheard (STT as "SDT", CLI as "cla"); ONNX is said "onyx".
+STT	S T T
+CLI	C L I
+ONNX	onyx
+# Weekdays and model sizes.
+Mon	Monday
+Tue	Tuesday
+Tues	Tuesday
+Wed	Wednesday
+Thu	Thursday
+Thurs	Thursday
+Fri	Friday
+# A word a camelCase name splits into ("getUserById").
+Id	ID
+# Dotfiles. ".env" alone as "dot en vee": "dot env" was heard ".end" (M3,
+# f13, e21); the longer forms keep "dot env", which every voice reads clearly there.
+.env	dot en vee
+.env.local	dot env dot local
+.env.example	dot env dot example
+# MLX and SGLang are spelled; "lead" in a job title is the verb, not the metal.
+MLX	M L X
+mlx	M L X
+mlx-audio	M L X audio
+MLX-audio	M L X audio
+SGLang	S G lang
+sglang	S G lang
+team lead	team leed
+tech lead	tech leed
+# JS is spelled, not said as one word; ".js" also as a suffix (Node.js, Transformers.js, main.js).
+.js	J S
+JS	J S
+js	J S
+kokoro-js	kokoro J S
+onnxruntime-web	onyx runtime web
+onnxruntime	onyx runtime
+# CLI: spelled "C L I". Spelled letters are read as one name (19 Nov): kept apart, only the last letter stressed.
+CLIs	C L I's
+# Tech terms, 18 Nov ("GGUF" was said as "just"): software, ML/AI and robotics, case-aware (only these exact forms, so
+# rag, slam, pid stay words). Spelled letters are spaced: joined runs blurred. Checked by Whisper on nano and tiny.
+TTS	T T S
+ASR	A S R
+LLM	L L M
+SLM	S L M
+SLMs	S L M's
+VLM	V L M
+VLMs	V L M's
+GGUF	G G U F
+gguf	G G U F
+GGML	G G M L
+ggml	G G M L
+GPTQ	G P T Q
+AWQ	A W Q
+CUDA	kooda
+cuda	kooda
+cuDNN	kooda D N N
+NCCL	nickel
+ROCm	rock M
+TensorRT	tensor R T
+TensorRT-LLM	tensor RT LLM
+OpenVINO	open veeno
+CoreML	core M L
+DirectML	direct M L
+MLC	M L C
+GPU	G P U
+TPU	T P U
+NPU	N P U
+CPU	C P U
+LPU	L P U
+API	A P I
+APIs	A P I's
+SDK	S D K
+SDKs	S D K's
+JSONL	jay son L
+jsonl	jay son L
+YAML	yammel
+yaml	yammel
+TOML	tommel
+toml	tommel
+SQL	S Q L
+NoSQL	no S Q L
+CSV	C S V
+XML	X M L
+HTML	H T M L
+CSS	C S S
+QLoRA	Q lora
+PEFT	peft
+MoE	M O E
+RLHF	R L H F
+RLAIF	R L A I F
+DPO	D P O
+PPO	P P O
+GRPO	G R P O
+SFT	S F T
+KV cache	K V cache
+KV	K V
+TFLOPS	teraflops
+int8	int eight
+INT8	int eight
+int4	int four
+INT4	int four
+fp16	F P sixteen
+FP16	F P sixteen
+fp32	F P thirty two
+FP32	F P thirty two
+fp8	F P eight
+FP8	F P eight
+bf16	B F sixteen
+BF16	B F sixteen
+WASM	wazzum
+wasm	wazzum
+WASI	wazzy
+WebNN	web N N
+WebRTC	web R T C
+PyTorch	pie torch
+pytorch	pie torch
+NumPy	num pie
+numpy	num pie
+SciPy	sigh pie
+scipy	sigh pie
+scikit-learn	sigh kit learn
+JAX	jacks
+XLA	X L A
+safetensors	safe tensors
+MLflow	M L flow
+wandb	W and B
+SentencePiece	sentence piece
+BPE	B P E
+AI	A I
+ML	M L
+NLP	N L P
+CNN	C N N
+RNN	R N N
+LSTM	L S T M
+GRU	G R U
+MLP	M L P
+VAE	V A E
+VQ-VAE	VQ VAE
+RVQ	R V Q
+GELU	jell oo
+AdamW	adam W
+SGD	S G D
+GPT	G P T
+ChatGPT	chat G P T
+ResNet	rez net
+GQA	G Q A
+MQA	M Q A
+MMLU	M M L U
+GSM8K	G S M eight K
+SWE-bench	swee bench
+STFT	S T F T
+FFT	F F T
+MFCC	M F C C
+CER	C E R
+MOS	M O S
+SNR	S N R
+RTF	R T F
+VAD	V A D
+MCP	M C P
+A2A	ay two ay
+SNAC	snack
+StyleTTS	style T T S
+StyleTTS2	style T T S two
+XTTS	X T T S
+F5-TTS	F five T T S
+VITS	vits
+espeak	E speak
+Groq	grock
+xAI	X A I
+LlamaIndex	llama index
+llama.cpp	llama C P P
+whisper.cpp	whisper C P P
+ollama	oh llama
+Ollama	oh llama
+FAISS	face
+pgvector	P G vector
+HNSW	H N S W
+SSH	S S H
+HTTP	H T T P
+HTTPS	H T T P S
+TCP	T C P
+UDP	U D P
+DNS	D N S
+TLS	T L S
+SSL	S S L
+CDN	C D N
+VPN	V P N
+VM	V M
+VMs	V M's
+CI/CD	C I C D
+CI	C I
+gRPC	G R P C
+JWT	J W T
+UUID	U U I D
+GUID	goo id
+SaaS	sass
+npm	N P M
+pnpm	P N P M
+ESM	E S M
+macOS	mac O S
+iOS	I O S
+iPadOS	eye pad O S
+Ubuntu	oo boon too
+Xcode	X code
+VS Code	V S code
+tmux	tee mux
+zsh	Z shell
+MongoDB	mongo D B
+GCP	G C P
+EC2	E C two
+k8s	K eights
+WireGuard	wire guard
+systemd	system D
+SoC	S O C
+NVMe	N V M E
+SSD	S S D
+VRAM	V ram
+HBM	H B M
+aarch64	ay arch sixty four
+RISC-V	risk five
+kHz	kilohertz
+GHz	gigahertz
+ROS	ross
+ROS 2	ross two
+IMU	I M U
+PID	P I D
+URDF	U R D F
+MPC	M P C
+EKF	E K F
+IK	I K
+DoF	D O F
+DOF	D O F
+6-DoF	six D O F
+6DoF	six D O F
+RGB	R G B
+RGB-D	R G B D
+LeRobot	le robot
+MoveIt	move it
+OpenCV	open C V
+ESP32	E S P thirty two
+STM32	S T M thirty two
+UART	you art
+I2C	eye squared C
+SPI	S P I
+GPIO	G P I O
+PWM	P W M
+sim2real	sim to real
+# .cpp project names, 18 Nov: "<name> C P P", no "dot" (as people say llama.cpp); other .cpp files keep "dot C P P".
+Llama.cpp	llama C P P
+LLAMA.CPP	llama C P P
+llama-cpp	llama C P P
+llama-cpp-python	llama C P P python
+llama cpp	llama C P P
+Whisper.cpp	whisper C P P
+whisper-cpp	whisper C P P
+audio.cpp	audio C P P
+ggml.cpp	GGML C P P
+stable-diffusion.cpp	stable diffusion C P P
+bark.cpp	bark C P P
+gemma.cpp	jemma C P P
+encodec.cpp	en codec C P P
+clip.cpp	clip C P P
+chatglm.cpp	chat GLM C P P
+qwen.cpp	kwen C P P
+rwkv.cpp	RWKV C P P
+bert.cpp	burt C P P
+vits.cpp	vits C P P
+tts.cpp	TTS C P P
+ai	A I

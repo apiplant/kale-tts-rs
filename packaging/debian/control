@@ -1,0 +1,12 @@
+Package: kale-tts
+Version: @VERSION@
+Section: sound
+Priority: optional
+Architecture: @ARCH@
+Maintainer: ApiPlant <releases@apiplant.com>
+Installed-Size: @INSTALLED_SIZE@
+Depends: libc6 (>= @GLIBC@)
+Homepage: https://github.com/apiplant/kale-tts-rs
+Description: Native Rust text-to-speech using Kale models
+ A single executable provides synthesis CLI, ntex API and embedded SolidJS UI.
+ Model weights are downloaded separately into the user's cache.
