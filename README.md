@@ -2,6 +2,8 @@
 
 [Project site](https://kale-tts-rs-website.pages.dev/) · [Examples](https://kale-tts-rs-website.pages.dev/examples) · [Documentation](https://kale-tts-rs-website.pages.dev/docs)
 
+Cloudflare Pages builds `website/` from the `main` branch on each push.
+
 Native Rust speech synthesis for Kale TTS models, built on Candle. The executable provides a CLI, ntex HTTP API, and an embedded SolidJS interface. Model files download to the local cache on first use; they are not included in release binaries.
 
 ## Model status
