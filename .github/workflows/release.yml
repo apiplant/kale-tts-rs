@@ -63,6 +63,7 @@ jobs:
     container: nvidia/cuda:12.1.1-devel-ubuntu22.04
     env:
       CUDARC_CUDA_VERSION: "12010"
+      CUDA_COMPUTE_CAP: "75"
     steps:
       - name: Install build tools
         run: |
@@ -107,6 +108,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Build Arch CUDA binary
         shell: bash
+        env:
+          CUDA_COMPUTE_CAP: "80"
         run: |
           set -euo pipefail
           export PATH=/opt/cuda/bin:$PATH CUDA_PATH=/opt/cuda CUDA_HOME=/opt/cuda
