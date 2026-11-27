@@ -9,7 +9,7 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "check": "tsc --noEmit",
-    "deploy": "pnpm build && wrangler pages deploy dist --project-name kale-tts-rs-website --branch main"
+    "pages:dev": "wrangler pages dev dist"
   },
   "dependencies": {
     "@solidjs/web": "2.0.4",
