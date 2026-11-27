@@ -36,7 +36,7 @@ kale-tts --model base synthesize "Hello there." --voice Kenzie hello-base.wav
 kale-tts --model nano serve --addr 127.0.0.1:8080
 ```
 
-The default model is Nano. Use `--device cpu`, `--device auto`, or `--device cuda:0` when built with the `cuda` feature. Base currently defaults to Kenzie; Nano and Tiny default to `s057b`.
+The default model is Nano. CUDA feature builds automatically use an available GPU; use `--device cpu` to force CPU or `--device cuda:0` to require CUDA. Base currently defaults to Kenzie; Nano and Tiny default to `s057b`.
 
 The server serves the embedded SolidJS tool at `/`, model and voice metadata at `/voices`, health at `/health`, and WAV synthesis at `POST /v1/audio/speech`:
 
